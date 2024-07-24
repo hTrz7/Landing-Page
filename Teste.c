@@ -8,6 +8,7 @@
 int main(){
 
     float salario, calc, ir;
+    float media;
 
     printf("informe o seu salario: ");
     scanf("%f", &salario);
