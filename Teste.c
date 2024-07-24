@@ -23,6 +23,5 @@ int main(){
     printf("voce tera que pagar %.2f de imposto de renda.", ir);
     printf("voce tera que pagar %.2f de imposto de renda.", ir);
     printf("voce tera que pagar %.2f de imposto de renda.", ir);
-
     return 0;
 }
