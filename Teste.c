@@ -1,20 +1,25 @@
-/*
-    Escreva um programa que receba o salário de um funcionário e
-    calcule quanto ele precisa pagar de imposto de renda (aliquota 25%)
-*/
-
 #include <stdio.h>
 
 int main(){
 
-    float salario, calc, ir;
+    float altura, peso , imc;
 
-    printf("informe o seu salario: ");
-    scanf("%f", &salario);
+    printf("informe sua altura (em metros): ");
+    scanf("%f", &altura);
+    printf("informe seu peso (em kilos): ");
+    scanf("%f", &peso);
 
-    calc = (salario * 0.25) / 100;
-    ir = calc - 873.6;
+    imc = peso / (altura * altura);
+    
+    if(imc < 18.5){
+        printf("esta abaixo do peso. IMC: %.2f.", imc);
+    } else if(imc >= 18.5 && imc <= 24.9){
+        printf("esta no peso ideal. IMC: %.2f.", imc);
+    } else if(imc >= 25.0 && imc <= 29.9){
+        printf("esta acima do peso. IMC: %.2f.", imc);
+    } else if(imc >= 30.0 && imc <= 39.9){
+        printf("esta obeso. IMC: %.2f", imc);
+    }
 
-    printf("voce tera que pagar %.2f de imposto de renda.", ir);
-    return 0;
+    return 0;       
 }
