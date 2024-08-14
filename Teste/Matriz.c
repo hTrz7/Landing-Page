@@ -1,19 +1,25 @@
 //armazenar valor de rendas per capitas//
 
 #include <stdio.h>
-#include <string.h>
+#include <locale.h>
 
 int main(){
 
-    int matriz[4][3];
+    setlocale(LC_ALL, "Portuguese");
 
-    for(int i = 0; i <= 3; i++){
-        for(int j = 0; j <= 2; j++){
+    float matriz[4][3];
+
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 3; j++){
             printf("Informe a renda: ");
-            scanf("%d", &matriz[i][j]);
+            scanf("%f", &matriz[i][j]);
         }
     }
-    printf("%d", matriz);
+    for(int i = 0; i < 4; i++){
+        for(int j = 0; j < 3; j++){
+            printf("%.2f \n", matriz[i][j]);
+        }
+    }
 
     return 0;
 }
