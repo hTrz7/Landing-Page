@@ -41,30 +41,32 @@ typedef struct
     float valorTotal;
 } dadosDaVenda;
 
-int validarCodCliente(int cod, dadosDosClientes *p)
+int validarCliente(int cod, dadosDosClientes *p)
 {
     for (int i = 0; i <= totalClientes; i++)
     {
-        if (cod != p->codigo)
+        if (cod == p[i].codigo)
         {
-            return 1;
-        } 
+            return i;
+        }else{
+            return -1;
+        }  
     }
-    return -1;
 }
 
 void cadastrarCliente(dadosDosClientes *p)
 {
-    int cod;
+    int cod, validar;
     printf("Digite o código: ");
     scanf("%d", &cod);
     getchar();
     
-    validarCodCliente(cod, p);
-    if(cod == 1){
-        printf("Cliente válido.");
+    validar = validarCliente(cod, p);
+    if(validar == -1){
+        printf("Cliente valido.\n");
     }else{
-        printf("Cliente inválido.");
+        printf("Cliente invalido.");
+        return;
     }
 
     printf("Digite nome do cliente: \n");
@@ -83,13 +85,13 @@ void cadastrarCliente(dadosDosClientes *p)
     system("cls");
 }
 
-int validarCodProduto(int cod, dadosDosProdutos *p)
+int validarProduto(int cod, dadosDosProdutos *p)
 {
     for (int i = 0; i <= totalClientes; i++)
     {
-        if (cod != p->codigoDoprod)
+        if (cod == p[i].codigoDoprod)
         {
-            return 1;
+            return i;
         }
     }
 
@@ -98,16 +100,16 @@ int validarCodProduto(int cod, dadosDosProdutos *p)
 
 void cadastrarProduto(dadosDosProdutos *p)
 {
-    int cod, validacao;
+    int cod, validar;
     printf("Digite o código do produto: \n");
     scanf("%d", &cod);
     getchar();
 
-    validacao = validarCodProduto(cod, p);
-    if(validacao == 1){
-        printf("Produto válido.");
+    validar = validarProduto(cod, p);
+    if(validar == -1){
+        printf("Produto valido.\n");
     }else{
-        printf("Produto inválido.");
+        printf("Produto invalido.");
         return;
     }
 
@@ -125,31 +127,6 @@ void cadastrarProduto(dadosDosProdutos *p)
     getchar();
 
     system("cls");
-}
-
-int validarCliente(int cod, dadosDosClientes *p)
-{
-    for (int i = 0; i <= totalClientes; i++)
-    {
-        if (cod == p[i].codigo)
-        {
-            return i;
-        } 
-    }
-    return -1;
-}
-
-int validarProduto(int cod, dadosDosProdutos *p)
-{
-    for (int i = 0; i <= totalClientes; i++)
-    {
-        if (cod == p[i].codigoDoprod)
-        {
-            return i;
-        }
-    }
-
-    return -1;
 }
 
 void cadastrarVendas(dadosDaVenda *p, dadosDosClientes *clientes, dadosDosProdutos *produtos)
