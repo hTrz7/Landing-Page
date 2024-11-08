@@ -48,10 +48,10 @@ int validarCliente(int cod, dadosDosClientes *p)
         if (cod == p[i].codigo)
         {
             return i;
-        }else{
-            return -1;
-        }  
+        }                    
     }
+    
+    return -1;
 }
 
 void cadastrarCliente(dadosDosClientes *p)
